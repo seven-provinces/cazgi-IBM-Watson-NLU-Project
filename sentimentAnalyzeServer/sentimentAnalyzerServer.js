@@ -44,15 +44,11 @@ app.get("/url/emotion", (req,res) => {
     var nlu = getNLUInstance();
     nlu.analyze(parameters)
     .then(analysisResults => {
-        //res.send("positive");
-        //res.send(JSON.stringify(analysisResults.result.sentiment.document.label, null, 2));
         res.send(analysisResults.result.emotion.document.emotion);
-        //res.json({query: req.query.text, results: analysisResults.result});
     })
     .catch(err => {
         res.send(err.toString());
     });
-    //return res.send({"happy":"90","sad":"10"});
 });
 
 app.get("/url/sentiment", (req,res) => {
@@ -69,15 +65,11 @@ app.get("/url/sentiment", (req,res) => {
     var nlu = getNLUInstance();
     nlu.analyze(parameters)
     .then(analysisResults => {
-        //res.send("positive");
-        //res.send(JSON.stringify(analysisResults.result.sentiment.document.label, null, 2));
         res.send(analysisResults.result.sentiment.document.label);
-        //res.json({query: req.query.text, results: analysisResults.result.sentiment});
     })
     .catch(err => {
         res.send(err.toString());
     });
-    //return res.send("url sentiment for "+req.query.url);
 });
 
 app.get("/text/emotion", (req,res) => {
@@ -94,15 +86,11 @@ app.get("/text/emotion", (req,res) => {
     var nlu = getNLUInstance();
     nlu.analyze(parameters)
     .then(analysisResults => {
-        //res.send("positive");
-        //res.send(JSON.stringify(analysisResults.result.sentiment.document.label, null, 2));
         res.send(analysisResults.result.emotion.document.emotion);
-        //res.json({query: req.query.text, results: analysisResults.result});
     })
     .catch(err => {
         res.send(err.toString());
     });
-    //return res.send({"happy":"10","sad":"90"});
 });
 
 app.get("/text/sentiment", (req,res) => {
@@ -119,15 +107,11 @@ app.get("/text/sentiment", (req,res) => {
     var nlu = getNLUInstance();
     nlu.analyze(parameters)
     .then(analysisResults => {
-        //res.send("positive");
-        //res.send(JSON.stringify(analysisResults.result.sentiment.document.label, null, 2));
         res.send(analysisResults.result.sentiment.document.label);
-        //res.json({query: req.query.text, results: analysisResults.result.sentiment});
     })
     .catch(err => {
         res.send(err.toString());
     });
-    //return res.send("text sentiment for "+req.query.text);
 });
 
 let server = app.listen(8080, () => {
